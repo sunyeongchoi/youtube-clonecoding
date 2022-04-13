@@ -8,7 +8,6 @@ const VideoContents = () => {
     const response = await axios.get(PLAYLIST_URL);
     setData(response.data.items);
   }
-  console.log(data)
 
   React.useEffect(() => {
       getData();
