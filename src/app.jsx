@@ -12,16 +12,17 @@ function App({ youtube }) {
     youtube.mostPopular().then(setVideos);
   }, [youtube]);
 
-  const selectVideo = (video) => {
+  const selectVideo = React.useCallback((video) => {
     setSelectedVideo(video);
-  }
-  const search = query => {
+  }, [])
+  
+  const search = React.useCallback((query) => {
     // setSelectedVideo(null);
     youtube.search(query).then((videos) => {
       setVideos(videos);
       setSelectedVideo(null);
     })
-  }
+  }, [youtube])
 
   return (
     <div className={styles.app}>
